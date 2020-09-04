@@ -6,11 +6,11 @@ import { fetchCharacters } from './fetchCharacters';
 export const initialState = {
   search: '',
   page: paths.characters,
+  currentPage: 1,
   characters: {
     list: [],
     error: null,
     isLoading: false,
-    currentPage: 1,
   },
 };
 
@@ -21,12 +21,11 @@ export const StateManager = ({ children }) => {
   const [page, setPage] = useState(initialState.page);
   const [search, setSearch] = useState(initialState.search);
   const [characters, setCharacters] = useState(initialState.characters);
-
-  const { currentPage } = characters;
+  const [currentPage, setCurrentPage] = useState(initialState.currentPage);
 
   useEffect(() => {
-    fetchCharacters({ currentPage, setCharacters });
-  }, []);
+    fetchCharacters(setCharacters);
+  }, [currentPage]);
 
   const value = {
     page,
@@ -34,6 +33,8 @@ export const StateManager = ({ children }) => {
     search,
     setSearch,
     characters,
+    currentPage,
+    setCurrentPage,
   };
 
   return <Provider value={value}>{children}</Provider>;

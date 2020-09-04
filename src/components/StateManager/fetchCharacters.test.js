@@ -15,7 +15,7 @@ describe('fetchCharacters', () => {
 
     moxios.stubRequest('/characters', { status: 200, response });
 
-    await fetchCharacters({ setCharacters });
+    await fetchCharacters(setCharacters);
 
     expect(setCharacters).toHaveBeenLastCalledWith({
       error: null,
@@ -29,7 +29,7 @@ describe('fetchCharacters', () => {
 
     moxios.stubRequest('/characters', { status: 500 });
 
-    await fetchCharacters({ setCharacters });
+    await fetchCharacters(setCharacters);
 
     expect(setCharacters).toHaveBeenLastCalledWith({
       error: 'Ocorreu um erro ao listar os personagens',

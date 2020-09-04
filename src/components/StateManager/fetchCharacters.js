@@ -1,8 +1,8 @@
 import axios from '../../utils/axios';
 
-export const fetchCharacters = async ({ setCharacters, currentPage }) => {
+export const fetchCharacters = async (setCharacters) => {
   try {
-    setCharacters({ currentPage, isLoading: true, error: null, list: [] });
+    setCharacters({ isLoading: true, error: null });
 
     const { data } = await axios.get('/characters');
 
@@ -10,12 +10,10 @@ export const fetchCharacters = async ({ setCharacters, currentPage }) => {
       error: null,
       isLoading: false,
       list: data.data.results,
-      currentPage,
     });
   } catch (error) {
     setCharacters({
       list: [],
-      currentPage,
       isLoading: false,
       error: 'Ocorreu um erro ao listar os personagens',
     });
