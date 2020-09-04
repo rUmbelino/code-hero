@@ -1,17 +1,21 @@
 import moxios from 'moxios';
 
-import { fetchCharacters } from './charactersController';
+import { fetchCharacters } from './fetchCharacters';
 
-describe('charactersController', () => {
+describe('fetchCharacters', () => {
   it('should successfully fetch characters', async () => {
     const setCharacters = jest.fn();
     const response = {
-      results: [{ name: 'Umbelex' }],
+      data: {
+        data: {
+          results: [{ name: 'Umbelex' }],
+        },
+      },
     };
 
     moxios.stubRequest('/characters', { status: 200, response });
 
-    await fetchCharacters(setCharacters);
+    await fetchCharacters({ setCharacters });
 
     expect(setCharacters).toHaveBeenLastCalledWith({
       error: null,
@@ -25,7 +29,7 @@ describe('charactersController', () => {
 
     moxios.stubRequest('/characters', { status: 500 });
 
-    await fetchCharacters(setCharacters);
+    await fetchCharacters({ setCharacters });
 
     expect(setCharacters).toHaveBeenLastCalledWith({
       error: 'Ocorreu um erro ao listar os personagens',
