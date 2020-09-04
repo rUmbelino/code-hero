@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const initialState = {
   search: '',
@@ -9,25 +9,22 @@ export const initialState = {
 
 export const { Provider, Consumer } = React.createContext(initialState);
 
-export class StateManager extends React.Component {
-  state = initialState;
+export const StateManager = ({ children }) => {
+  const [page, setPage] = useState(initialState.page);
+  const [search, setSearch] = useState(initialState.search);
+  const [characters, setCharacters] = useState(initialState.characters);
+  const [currentPage, setCurrentPage] = useState(initialState.currentPage);
 
-  changeState = (key, value) => this.setState({ [key]: value });
+  const value = {
+    page,
+    setPage,
+    search,
+    setSearch,
+    currentPage,
+    setCurrentPage,
+    characters: [...characters],
+    setCharacters: (characters) => setCharacters([...characters]),
+  };
 
-  render() {
-    const { page, search, characters, currentPage } = this.state;
-
-    const value = {
-      page,
-      setPage: (page) => this.changeState('page', page),
-      search,
-      setSearch: (search) => this.changeState('search', search),
-      currentPage,
-      setCurrentPage: (currentPage) => this.changeState('currentPage', currentPage),
-      characters: [...characters],
-      setCharacters: (characters) => this.changeState('characters', [...characters]),
-    };
-
-    return <Provider value={value}>{this.props.children}</Provider>;
-  }
-}
+  return <Provider value={value}>{children}</Provider>;
+};
