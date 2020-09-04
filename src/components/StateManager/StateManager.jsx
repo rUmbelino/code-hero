@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
+import { paths } from '../Router';
+
 export const initialState = {
   search: '',
-  page: 'home',
+  page: paths.characters,
   characters: [],
   currentPage: 1,
 };
