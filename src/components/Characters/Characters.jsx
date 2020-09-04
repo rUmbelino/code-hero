@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Characters = ({ className }) => {
+export const Characters = () => {
   return (
     <div className="characters-page">
       <div className="d-flex">

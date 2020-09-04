@@ -5,7 +5,11 @@ import { paths } from '../Router';
 export const initialState = {
   search: '',
   page: paths.characters,
-  characters: [],
+  characters: {
+    list: [],
+    error: null,
+    isLoading: false,
+  },
   currentPage: 1,
 };
 
@@ -25,8 +29,8 @@ export const StateManager = ({ children }) => {
     setSearch,
     currentPage,
     setCurrentPage,
-    characters: [...characters],
-    setCharacters: (characters) => setCharacters([...characters]),
+    characters,
+    setCharacters,
   };
 
   return <Provider value={value}>{children}</Provider>;
