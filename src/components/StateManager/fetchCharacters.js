@@ -2,7 +2,7 @@ import axios from '../../utils/axios';
 
 export const fetchCharacters = async (setCharacters) => {
   try {
-    setCharacters({ isLoading: true, error: null });
+    setCharacters({ isLoading: true, list: [], error: null });
 
     const { data } = await axios.get('/characters');
 

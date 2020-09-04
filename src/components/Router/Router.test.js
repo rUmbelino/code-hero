@@ -16,8 +16,15 @@ describe('Router', () => {
   });
 
   it('should return Characters when characters are in the page', () => {
+    const value = {
+      page: paths.characters,
+      characters: {
+        list: [],
+      },
+    };
+
     const wrapper = mount(
-      <Provider value={{ page: paths.characters }}>
+      <Provider value={value}>
         <Router />
       </Provider>,
     );
