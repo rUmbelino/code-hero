@@ -1,0 +1,14 @@
+.logo {
+  max-width: 100px;
+}
+
+.avatar {
+  max-width: 40px;
+}
+
+@media (max-width: 600px) {
+  .candidate-info {
+    display: flex;
+    flex-direction: column;
+  }
+}

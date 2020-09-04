@@ -1,0 +1,26 @@
+* {
+  font-family: 'PT Sans', sans-serif;
+}
+
+/* flexbox */
+.d-flex {
+  display: flex;
+}
+
+.d-flex * {
+  align-self: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+/* spacing */
+
+.p-1 {
+  padding: 1rem;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
