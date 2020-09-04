@@ -9,15 +9,18 @@ describe('Character', () => {
     name: '3-D Man',
     description: '',
     thumbnail: {
-      path: '',
+      path: 'image-path',
+      extension: 'jpg',
     },
     events: { items: [{ name: 'event one' }] },
   };
   const wrapper = shallow(<Character {...character} />);
 
   it('should render the character thumbnail', () => {
+    const { path, extension } = character.thumbnail;
+    const imgPath = `${path}/portrait_xlarge.${extension}`;
     const { src } = wrapper.find('img').props();
-    expect(src).toBe(character.thumbnail.path);
+    expect(src).toBe(imgPath);
   });
 
   it('should render the character name', () => {
