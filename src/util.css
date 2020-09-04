@@ -1,5 +1,6 @@
 * {
   font-family: 'PT Sans', sans-serif;
+  color: #555555;
 }
 
 /* flexbox */
@@ -23,4 +24,18 @@
 
 .mr-1 {
   margin-right: 1rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+/* position */
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
 }

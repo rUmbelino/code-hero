@@ -7,7 +7,8 @@ export const initialState = {
   currentPage: 1,
 };
 
-export const { Provider, Consumer } = React.createContext(initialState);
+export const StateManagerContext = React.createContext(initialState);
+export const { Provider, Consumer } = StateManagerContext;
 
 export const StateManager = ({ children }) => {
   const [page, setPage] = useState(initialState.page);
