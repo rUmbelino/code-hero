@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { Header } from '../Header';
+import { StateManager } from '../StateManager';
 
 export const App = () => {
   return (
-    <React.Fragment>
+    <StateManager>
       <Header />
-    </React.Fragment>
+    </StateManager>
   );
 };
