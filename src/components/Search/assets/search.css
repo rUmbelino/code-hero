@@ -14,8 +14,6 @@
   bottom: 0;
   top: 0.25em;
   right: 0.25em;
-  border: none;
-  cursor: pointer;
   background: transparent;
   outline: none !important;
 }

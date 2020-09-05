@@ -5,6 +5,7 @@ import { App } from './App';
 import { Header } from '../Header';
 import { Search } from '../Search';
 import { Router } from '../Router';
+import { Pagination } from '../Pagination';
 import { StateManager } from '../StateManager';
 
 describe('App', () => {
@@ -24,5 +25,9 @@ describe('App', () => {
 
   it('should render the Router', () => {
     expect(wrapper.find(Router).exists()).toBeTruthy();
+  });
+
+  it('should render the Pagination', () => {
+    expect(wrapper.find(Pagination).exists()).toBeTruthy();
   });
 });
