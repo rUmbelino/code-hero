@@ -133,6 +133,10 @@
   cursor: pointer;
 }
 
+.text-decoration-none {
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   .mobile-hidden {
     display: none !important;

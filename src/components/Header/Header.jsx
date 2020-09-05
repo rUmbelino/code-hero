@@ -22,10 +22,15 @@ export const Header = () => {
       </Consumer>
 
       <div className="d-flex">
-        <div className="candidate-info">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/rUmbelino"
+          className="candidate-info text-decoration-none"
+        >
           <b className="candidate-name mr-1">Rafael Umbelino</b>
           <span className="candidate-label mr-1">Teste de front-end</span>
-        </div>
+        </a>
         <img className="avatar" alt="candidate avatar" src={avatar} />
       </div>
     </header>
