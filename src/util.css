@@ -21,6 +21,10 @@
   justify-content: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 /* spacing */
 
 .p-0 {

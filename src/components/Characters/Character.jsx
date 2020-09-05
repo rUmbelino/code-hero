@@ -18,9 +18,9 @@ export const Character = ({ id, thumbnail, name, description, events, onClick })
         <p className="description">{description}</p>
       </div>
       <div className="column mobile-hidden">
-        {events.items.map((event) => (
-          <p className="event" key={event.name}>
-            {event.name}
+        {events.items.map(({ name }) => (
+          <p className="event" key={name}>
+            {name}
           </p>
         ))}
       </div>

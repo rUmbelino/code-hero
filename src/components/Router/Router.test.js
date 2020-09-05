@@ -3,13 +3,17 @@ import { mount } from 'enzyme';
 
 import { Router } from './Router';
 import { Provider } from '../StateManager';
+import { character } from '../../utils/mock';
 
 describe('Router', () => {
   it('should return null when there is not match for page', () => {
     const wrapper = mount(
       <Provider
         value={{
-          selectedCharacter: 1,
+          selectedCharacter: character.id,
+          characters: {
+            list: [character],
+          },
         }}
       >
         <Router />
@@ -22,7 +26,7 @@ describe('Router', () => {
     const value = {
       selectedCharacter: null,
       characters: {
-        list: [],
+        list: [character],
       },
     };
 

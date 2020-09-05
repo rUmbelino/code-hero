@@ -24,6 +24,7 @@ export const StateManager = ({ children }) => {
   const [selectedCharacter, setSelectedCharacter] = useState(initialState.selectedCharacter);
 
   useEffect(() => {
+    setSelectedCharacter(null);
     fetchCharacters(setCharacters);
   }, [currentPage]);
 

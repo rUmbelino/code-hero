@@ -7,8 +7,12 @@ import { Detail } from '../Detail';
 export const Router = () => {
   return (
     <Consumer>
-      {({ selectedCharacter }) => {
-        if (selectedCharacter) return <Detail />;
+      {({ characters, selectedCharacter }) => {
+        const getSelectedCharacter = () => {
+          return characters.list.find(({ id }) => id === selectedCharacter);
+        };
+
+        if (selectedCharacter) return <Detail {...getSelectedCharacter()} />;
 
         return <Characters />;
       }}
