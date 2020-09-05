@@ -8,7 +8,7 @@ describe('SearchBar', () => {
   let wrapper;
   const mock = {
     search: 'initial input value',
-    setSearch: jest.fn(),
+    onSearch: jest.fn(),
   };
 
   beforeEach(() => {
@@ -25,6 +25,6 @@ describe('SearchBar', () => {
 
   it('should change value of search value in context', () => {
     wrapper.find('button').simulate('click');
-    expect(mock.setSearch).toHaveBeenCalled();
+    expect(mock.onSearch).toHaveBeenCalled();
   });
 });

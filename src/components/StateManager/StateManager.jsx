@@ -25,14 +25,19 @@ export const StateManager = ({ children }) => {
 
   useEffect(() => {
     setSelectedCharacter(null);
-    fetchCharacters(setCharacters);
-  }, [currentPage]);
+    fetchCharacters({ setCharacters, currentPage, search });
+  }, [currentPage, search]);
+
+  const onSearch = (key) => {
+    setCurrentPage(1);
+    setSearch(key);
+  };
 
   const value = {
     page,
     setPage,
     search,
-    setSearch,
+    onSearch,
     characters,
     currentPage,
     setCurrentPage,
