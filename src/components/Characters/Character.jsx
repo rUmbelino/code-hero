@@ -5,7 +5,7 @@ export const Character = ({ id, thumbnail, name, description, events, onClick })
 
   return (
     <div
-      className="card rounded d-flex row mb-1"
+      className="card rounded d-flex cursor-pointer row mb-1"
       onClick={() => {
         onClick(id);
       }}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { Event } from './Event';
 import { Detail } from './Detail';
 import { character } from '../../utils/mock';
 
@@ -22,5 +23,9 @@ describe('Detail', () => {
 
   it('should render the character description', () => {
     expect(wrapper.find('.description').text()).toBe(character.description);
+  });
+
+  it('should render the events', () => {
+    expect(wrapper.find(Event).length).toEqual(character.events.items.length);
   });
 });
