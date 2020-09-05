@@ -8,6 +8,7 @@ export const initialState = {
   selectedCharacter: null,
   characters: {
     list: [],
+    total: 0,
     error: null,
     isLoading: false,
   },
@@ -21,7 +22,9 @@ export const StateManager = ({ children }) => {
   const [search, setSearch] = useState(initialState.search);
   const [characters, setCharacters] = useState(initialState.characters);
   const [currentPage, setCurrentPage] = useState(initialState.currentPage);
-  const [selectedCharacter, setSelectedCharacter] = useState(initialState.selectedCharacter);
+  const [selectedCharacter, setSelectedCharacter] = useState(
+    initialState.selectedCharacter
+  );
 
   useEffect(() => {
     setSelectedCharacter(null);

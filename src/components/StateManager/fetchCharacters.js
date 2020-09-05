@@ -3,7 +3,11 @@ import axios from '../../utils/axios';
 export const ITEM_PER_PAGE = 10;
 export const ERROR_MESSAGE = 'Ocorreu um erro ao listar os personagens';
 
-export const fetchCharacters = async ({ setCharacters, currentPage = 1, search }) => {
+export const fetchCharacters = async ({
+  search,
+  setCharacters,
+  currentPage = 1,
+}) => {
   try {
     setCharacters({ isLoading: true, list: [], error: null });
 
@@ -13,16 +17,19 @@ export const fetchCharacters = async ({ setCharacters, currentPage = 1, search }
       nameStartsWith: search ? search : null,
     };
 
-    const { data } = await axios.get('/characters', { params });
+    const response = await axios.get('/characters', { params });
+    const { total, results: list } = response.data.data;
 
     setCharacters({
+      list,
+      total,
       error: null,
       isLoading: false,
-      list: data.data.results,
     });
   } catch (error) {
     setCharacters({
       list: [],
+      total: 0,
       isLoading: false,
       error: ERROR_MESSAGE,
     });

@@ -1,9 +1,17 @@
 import moxios from 'moxios';
 
 import { character } from '../../utils/mock';
-import { fetchCharacters, ITEM_PER_PAGE, ERROR_MESSAGE } from './fetchCharacters';
+import {
+  fetchCharacters,
+  ITEM_PER_PAGE,
+  ERROR_MESSAGE,
+} from './fetchCharacters';
 
 describe('fetchCharacters', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should call fetchCharacters with the proper params', async (done) => {
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -27,15 +35,21 @@ describe('fetchCharacters', () => {
     const setCharacters = jest.fn();
     await fetchCharacters({ setCharacters });
 
-    expect(setCharacters).toHaveBeenNthCalledWith(1, { isLoading: true, list: [], error: null });
-    expect(setCharacters).toHaveBeenNthCalledWith(2, { isLoading: false, list: [], error: ERROR_MESSAGE });
+    expect(setCharacters).toHaveBeenLastCalledWith({
+      list: [],
+      total: 0,
+      isLoading: false,
+      error: ERROR_MESSAGE,
+    });
   });
 
   it('should have success on fetch characters', async () => {
+    const total = 250;
     moxios.stubRequest('/characters?limit=10&offset=0', {
       status: 200,
       response: {
         data: {
+          total,
           results: [character],
         },
       },
@@ -44,7 +58,11 @@ describe('fetchCharacters', () => {
     const setCharacters = jest.fn();
     await fetchCharacters({ setCharacters });
 
-    expect(setCharacters).toHaveBeenNthCalledWith(1, { isLoading: true, list: [], error: null });
-    expect(setCharacters).toHaveBeenNthCalledWith(2, { isLoading: false, list: [character], error: null });
+    expect(setCharacters).toHaveBeenLastCalledWith({
+      total,
+      error: null,
+      isLoading: false,
+      list: [character],
+    });
   });
 });
