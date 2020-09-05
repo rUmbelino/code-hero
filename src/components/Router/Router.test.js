@@ -7,12 +7,18 @@ import { character } from '../../utils/mock';
 
 describe('Router', () => {
   it('should return null when there is not match for page', () => {
+    const mock = {
+      ...character,
+      events: {
+        items: [],
+      },
+    };
     const wrapper = mount(
       <Provider
         value={{
           selectedCharacter: character.id,
           characters: {
-            list: [character],
+            list: [mock],
           },
         }}
       >

@@ -8,3 +8,11 @@ export const character = {
   },
   events: { items: [{ name: 'event one' }] },
 };
+
+export const events = {
+  title: 'Secret Invasion',
+  thumbnail: {
+    path: '',
+    extension: 'jpg',
+  },
+};
