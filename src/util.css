@@ -118,6 +118,10 @@
 .container {
   padding: 1em;
   margin: auto;
+  max-width: 1200px;
+}
+
+.bg-gray {
   background-color: #e5e5e5;
 }
 
@@ -150,6 +154,7 @@
 }
 
 @media (max-width: 600px) {
+  .number-button:not(.visible),
   .mobile-hidden {
     display: none !important;
   }

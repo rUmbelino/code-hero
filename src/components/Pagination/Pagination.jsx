@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Consumer } from '../StateManager';
 import { Button } from './Button';
-import { getButotns } from './paginationController';
+import { getButotns, getResponsiveStyle } from './paginationController';
 
 export const Pagination = () => {
   return (
@@ -10,10 +10,19 @@ export const Pagination = () => {
       <Consumer>
         {({ currentPage, setCurrentPage, characters: { total } }) => {
           return getButotns({ total, currentPage }).map((description) => {
-            const isCurrentPage = currentPage === Number(description);
+            const pageNumber = Number(description);
+            const isCurrentPage = currentPage === pageNumber;
+            const responsiveStyle = getResponsiveStyle({
+              total,
+              pageNumber,
+              currentPage,
+            });
 
             return (
-              <div key={`${description}-button`} className='page-item'>
+              <div
+                key={`${description}-button`}
+                className={`page-item ${responsiveStyle}`}
+              >
                 <Button
                   total={total}
                   description={description}

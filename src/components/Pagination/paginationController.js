@@ -76,3 +76,29 @@ export const getPageValue = ({ total, description, currentPage }) => {
 
   return page;
 };
+
+export const getResponsiveStyle = ({ total, pageNumber, currentPage }) => {
+  if (isNaN(pageNumber)) return '';
+
+  let style = 'number-button';
+
+  let isVisible;
+
+  isVisible = pageNumber === currentPage;
+  isVisible = isVisible || pageNumber === currentPage - 1;
+  isVisible = isVisible || pageNumber === currentPage + 1;
+
+  const MAX_PAGE_VALUE = Math.ceil(total / ITEMS_PER_PAGE);
+
+  if (currentPage === 1) {
+    isVisible = isVisible || pageNumber === currentPage + 2;
+  } else if (currentPage === MAX_PAGE_VALUE) {
+    isVisible = isVisible || pageNumber === currentPage - 2;
+  }
+
+  if (isVisible) {
+    style += ' visible';
+  }
+
+  return style;
+};

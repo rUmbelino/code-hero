@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <StateManager>
       <Header />
-      <div className="container">
+      <div className='bg-gray'>
         <Search />
         <Router />
       </div>

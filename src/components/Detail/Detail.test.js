@@ -1,9 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import { Event } from './Event';
 import { Detail } from './Detail';
 import { character } from '../../utils/mock';
+import { Provider } from '../StateManager';
 
 describe('Detail', () => {
   const wrapper = shallow(<Detail {...character} />);
@@ -27,5 +28,22 @@ describe('Detail', () => {
 
   it('should render the events', () => {
     expect(wrapper.find(Event).length).toEqual(character.events.items.length);
+  });
+
+  describe('context tests', () => {
+    const value = {
+      setSelectedCharacter: jest.fn(),
+    };
+
+    const wrapper = mount(
+      <Provider value={value}>
+        <Detail {...character} />
+      </Provider>
+    );
+
+    it('should clear selecter user on click on go back', () => {
+      wrapper.find('button').simulate('click');
+      expect(value.setSelectedCharacter).toHaveBeenCalledWith(null);
+    });
   });
 });

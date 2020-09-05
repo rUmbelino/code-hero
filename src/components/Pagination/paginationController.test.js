@@ -1,9 +1,9 @@
 import {
-  getFirstButtonDescription,
   getButotns,
   getPageValue,
+  getResponsiveStyle,
+  getFirstButtonDescription,
 } from './paginationController';
-import { NUMBER_OF_BUTTONS } from './constants';
 
 describe('getFirstButtonDescription', () => {
   it('should get 1 as the fisrt number', () => {
@@ -40,5 +40,24 @@ describe('getFirstButtonDescription', () => {
       currentPage - 1
     );
     expect(getPageValue({ description: '<<', currentPage })).toBe(1);
+  });
+
+  it('should get the correct responsive style', () => {
+    const empty = getResponsiveStyle({
+      pageNumber: Number('d'),
+    });
+
+    const numberButton = getResponsiveStyle({
+      pageNumber: 5,
+    });
+
+    const visibleNumberButton = getResponsiveStyle({
+      pageNumber: 5,
+      currentPage: 5,
+    });
+
+    expect(empty).toBe('');
+    expect(numberButton).toBe('number-button');
+    expect(visibleNumberButton).toBe('number-button visible');
   });
 });
