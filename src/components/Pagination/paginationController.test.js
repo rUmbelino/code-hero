@@ -1,4 +1,9 @@
-import { NUMBER_OF_BUTTONS, getFirstButtonDescription, getButotns } from './paginationController';
+import {
+  NUMBER_OF_BUTTONS,
+  getFirstButtonDescription,
+  getButotns,
+  getPageValue,
+} from './paginationController';
 
 describe('getFirstButtonDescription', () => {
   it('should get 1 as the fisrt number', () => {
@@ -19,7 +24,15 @@ describe('getFirstButtonDescription', () => {
 
   it('should get the correct array size', () => {
     const buttons = getButotns(1);
-
     expect(buttons.length).toBe(NUMBER_OF_BUTTONS);
+  });
+
+  it('should get correct pageValue', () => {
+    const currentPage = 5;
+    const RANDOM_PAGE = 2;
+
+    expect(getPageValue(RANDOM_PAGE, currentPage)).toBe(RANDOM_PAGE);
+    expect(getPageValue('<', currentPage)).toBe(currentPage - 1);
+    expect(getPageValue('<<', currentPage)).toBe(1);
   });
 });
