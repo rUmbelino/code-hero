@@ -113,6 +113,10 @@
   color: white;
 }
 
+.text-danger {
+  color: firebrick;
+}
+
 .b-none {
   border: none;
 }

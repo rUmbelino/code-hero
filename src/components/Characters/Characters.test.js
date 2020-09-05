@@ -13,7 +13,7 @@ describe('Characters', () => {
     thumbnail: {
       path: '',
     },
-    events: { items: ['event one', 'event two'] },
+    events: { items: [{ name: 'event one' }] },
   };
 
   const value = {
