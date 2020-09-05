@@ -9,8 +9,10 @@ export const App = () => {
   return (
     <StateManager>
       <Header />
-      <Search />
-      <Router />
+      <div className="container">
+        <Search />
+        <Router />
+      </div>
     </StateManager>
   );
 };

@@ -18,7 +18,7 @@ describe('Character', () => {
 
   it('should render the character thumbnail', () => {
     const { path, extension } = character.thumbnail;
-    const imgPath = `${path}/portrait_xlarge.${extension}`;
+    const imgPath = `${path}/portrait_small.${extension}`;
     const { src } = wrapper.find('img').props();
     expect(src).toBe(imgPath);
   });

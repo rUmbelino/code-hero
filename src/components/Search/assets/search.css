@@ -11,11 +11,12 @@
 
 .search-bar .search {
   width: 2em;
-  border: none;
-  background: transparent;
-  top: 0.25em;
   bottom: 0;
+  top: 0.25em;
   right: 0.25em;
+  border: none;
+  cursor: pointer;
+  background: transparent;
   outline: none !important;
 }
 
