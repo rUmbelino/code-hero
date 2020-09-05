@@ -1,10 +1,15 @@
 import React from 'react';
 
-export const Character = ({ thumbnail, name, description, events }) => {
+export const Character = ({ id, thumbnail, name, description, events, onClick }) => {
   const { path, extension } = thumbnail;
 
   return (
-    <div className="card rounded d-flex row mb-1">
+    <div
+      className="card rounded d-flex row mb-1"
+      onClick={() => {
+        onClick(id);
+      }}
+    >
       <div className="d-flex column p-0">
         <img className="rounded" src={`${path}/portrait_small.${extension}`} alt={name} />
         <b className="name pl-1">{name}</b>

@@ -14,7 +14,9 @@ describe('Character', () => {
     },
     events: { items: [{ name: 'event one' }] },
   };
-  const wrapper = shallow(<Character {...character} />);
+
+  const onClick = jest.fn();
+  const wrapper = shallow(<Character onClick={onClick} {...character} />);
 
   it('should render the character thumbnail', () => {
     const { path, extension } = character.thumbnail;
@@ -33,5 +35,10 @@ describe('Character', () => {
 
   it('should render the character events', () => {
     expect(wrapper.find('.event').length).toBe(character.events.items.length);
+  });
+
+  it('shoudl call onClick callback', () => {
+    wrapper.simulate('click');
+    expect(onClick).toHaveBeenCalledWith(character.id);
   });
 });

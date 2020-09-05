@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import { paths } from '../Router';
 import { fetchCharacters } from './fetchCharacters';
 
 export const initialState = {
   search: '',
-  page: paths.characters,
   currentPage: 1,
+  selectedCharacter: null,
   characters: {
     list: [],
     error: null,
@@ -22,6 +21,7 @@ export const StateManager = ({ children }) => {
   const [search, setSearch] = useState(initialState.search);
   const [characters, setCharacters] = useState(initialState.characters);
   const [currentPage, setCurrentPage] = useState(initialState.currentPage);
+  const [selectedCharacter, setSelectedCharacter] = useState(initialState.selectedCharacter);
 
   useEffect(() => {
     fetchCharacters(setCharacters);
@@ -35,6 +35,8 @@ export const StateManager = ({ children }) => {
     characters,
     currentPage,
     setCurrentPage,
+    selectedCharacter,
+    setSelectedCharacter,
   };
 
   return <Provider value={value}>{children}</Provider>;

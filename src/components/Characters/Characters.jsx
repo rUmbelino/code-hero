@@ -7,7 +7,7 @@ import { Character } from './Character';
 export const Characters = () => {
   return (
     <Consumer>
-      {({ characters }) => {
+      {({ characters, setSelectedCharacter }) => {
         const renderCharacters = () => {
           const { list, error, isLoading } = characters;
 
@@ -20,7 +20,7 @@ export const Characters = () => {
           }
 
           return list.map((character) => {
-            return <Character key={`character-${character.id}`} {...character} />;
+            return <Character key={`character-${character.id}`} onClick={setSelectedCharacter} {...character} />;
           });
         };
 

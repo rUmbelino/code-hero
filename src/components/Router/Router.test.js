@@ -2,22 +2,25 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { Router } from './Router';
-import { paths } from './constants';
 import { Provider } from '../StateManager';
 
 describe('Router', () => {
   it('should return null when there is not match for page', () => {
     const wrapper = mount(
-      <Provider value={{}}>
+      <Provider
+        value={{
+          selectedCharacter: 1,
+        }}
+      >
         <Router />
       </Provider>,
     );
-    expect(wrapper.html()).toBeNull();
+    expect(wrapper.find('.characters-page').exists()).toBeFalsy();
   });
 
   it('should return Characters when characters are in the page', () => {
     const value = {
-      page: paths.characters,
+      selectedCharacter: null,
       characters: {
         list: [],
       },
