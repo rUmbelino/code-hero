@@ -10,7 +10,7 @@ export const getButotns = (currentPage) => {
   const firstValue = getFirstButtonDescription(currentPage);
   const buttons = [];
 
-  for (let i = firstValue; i <= NUMBER_OF_BUTTONS; i++) {
+  for (let i = firstValue; buttons.length < NUMBER_OF_BUTTONS; i++) {
     buttons.push(String(i));
   }
 
