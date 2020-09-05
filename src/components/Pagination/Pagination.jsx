@@ -8,13 +8,13 @@ export const Pagination = () => {
   return (
     <div className="d-flex justify-content-center my-1">
       <Consumer>
-        {({ currentPage }) => {
+        {({ currentPage, setCurrentPage }) => {
           return getButotns(currentPage).map((description) => {
             const isCurrentPage = currentPage === Number(description);
 
             return (
               <div key={`${description}-button`} className="page-item">
-                <Button description={description} isCurrentPage={isCurrentPage} />
+                <Button onClick={setCurrentPage} description={description} isCurrentPage={isCurrentPage} />
               </div>
             );
           });

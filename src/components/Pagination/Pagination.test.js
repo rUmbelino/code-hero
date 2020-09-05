@@ -8,6 +8,7 @@ import { NUMBER_OF_BUTTONS } from './paginationController';
 describe('Pagination', () => {
   const value = {
     currentPage: 1,
+    setCurrentPage: jest.fn(),
   };
 
   const wrapper = mount(
