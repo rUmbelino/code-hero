@@ -12,7 +12,9 @@ export const Router = () => {
           return characters.list.find(({ id }) => id === selectedCharacter);
         };
 
-        if (selectedCharacter) return <Detail {...getSelectedCharacter()} />;
+        if (selectedCharacter) {
+          return <Detail {...getSelectedCharacter()} />;
+        }
 
         return <Characters />;
       }}

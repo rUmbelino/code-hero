@@ -25,6 +25,10 @@
   flex-direction: column;
 }
 
+.align-self-start {
+  align-self: flex-start;
+}
+
 /* spacing */
 
 .p-0 {

@@ -9,7 +9,7 @@ export const character = {
   events: { items: [{ name: 'event one' }] },
 };
 
-export const events = {
+export const event = {
   title: 'Secret Invasion',
   thumbnail: {
     path: '',
