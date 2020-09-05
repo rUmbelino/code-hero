@@ -2,9 +2,9 @@ import moxios from 'moxios';
 
 import { character } from '../../utils/mock';
 import {
-  fetchCharacters,
-  ITEM_PER_PAGE,
   ERROR_MESSAGE,
+  ITEMS_PER_PAGE,
+  fetchCharacters,
 } from './fetchCharacters';
 
 describe('fetchCharacters', () => {
@@ -18,7 +18,7 @@ describe('fetchCharacters', () => {
 
       expect(request.config.params).toEqual({
         offset: 0,
-        limit: ITEM_PER_PAGE,
+        limit: ITEMS_PER_PAGE,
         nameStartsWith: null,
       });
 

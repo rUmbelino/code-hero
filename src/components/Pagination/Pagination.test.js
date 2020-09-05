@@ -3,21 +3,28 @@ import { mount } from 'enzyme';
 
 import { Provider } from '../StateManager';
 import { Pagination } from './Pagination';
-import { NUMBER_OF_BUTTONS } from './paginationController';
+import { getButotns } from './paginationController';
 
 describe('Pagination', () => {
   const value = {
-    currentPage: 1,
+    currentPage: 5,
     setCurrentPage: jest.fn(),
+    characters: {
+      total: 200,
+    },
   };
 
   const wrapper = mount(
     <Provider value={value}>
       <Pagination />
-    </Provider>,
+    </Provider>
   );
 
   it('should render the page itens', () => {
-    expect(wrapper.find('.page-item').length).toBe(NUMBER_OF_BUTTONS);
+    const { currentPage } = value;
+    const { total } = value.characters;
+    const buttons = getButotns({ total, currentPage });
+
+    expect(wrapper.find('.page-item').length).toBe(buttons.length);
   });
 });

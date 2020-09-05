@@ -1,6 +1,6 @@
 import axios from '../../utils/axios';
 
-export const ITEM_PER_PAGE = 10;
+export const ITEMS_PER_PAGE = 10;
 export const ERROR_MESSAGE = 'Ocorreu um erro ao listar os personagens';
 
 export const fetchCharacters = async ({
@@ -12,8 +12,8 @@ export const fetchCharacters = async ({
     setCharacters({ isLoading: true, list: [], error: null });
 
     const params = {
-      limit: ITEM_PER_PAGE,
-      offset: (currentPage - 1) * ITEM_PER_PAGE,
+      limit: ITEMS_PER_PAGE,
+      offset: (currentPage - 1) * ITEMS_PER_PAGE,
       nameStartsWith: search ? search : null,
     };
 

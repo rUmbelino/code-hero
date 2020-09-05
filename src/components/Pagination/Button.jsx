@@ -2,6 +2,7 @@ import React from 'react';
 import { getPageValue } from './paginationController';
 
 export const Button = ({
+  total,
   description,
   currentPage,
   isCurrentPage,
@@ -11,7 +12,9 @@ export const Button = ({
 
   return (
     <button
-      onClick={() => setCurrentPage(getPageValue(description, currentPage))}
+      onClick={() =>
+        setCurrentPage(getPageValue({ total, description, currentPage }))
+      }
       className={`description rounded cursor-pointer  p-0575 mr-1 b-none ${currentPageStyle}`}
     >
       {description}
