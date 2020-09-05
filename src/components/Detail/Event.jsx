@@ -27,7 +27,7 @@ export class Event extends React.Component {
     const { title, thumbnail, description } = event;
 
     return (
-      <div className="d-flex">
+      <div className="d-flex border-button w-100 pb-1 mb-1">
         <img src={thumbnail} alt={title} />
         <div className="ml-1">
           <h5 className="title">{title}</h5>

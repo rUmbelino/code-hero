@@ -11,16 +11,18 @@ export const Detail = ({ thumbnail, name, description, events }) => {
 
   return (
     <article className="card rounded">
-      <img className="rounded" src={`${path}/portrait_xlarge.${extension}`} alt={name} />
-      <h2 className="name py-1">{name}</h2>
-      <section>
-        <p className="description">{description}</p>
-        <div className="d-flex flex-column justify-content-center my-1">
-          <h3 className="align-self-start  my-1">{title}</h3>
-          {events.items.map(({ name, resourceURI }) => (
-            <Event key={name} resourceURI={resourceURI} />
-          ))}
+      <div className="d-flex">
+        <img className="rounded" src={`${path}/portrait_xlarge.${extension}`} alt={name} />
+        <div className="ml-1">
+          <h2 className="name py-1">{name}</h2>
+          <p className="description">{description}</p>
         </div>
+      </div>
+      <section className="d-flex flex-column justify-content-center my-1">
+        <h3 className="align-self-start  my-1">{title}</h3>
+        {events.items.map(({ name, resourceURI }) => (
+          <Event key={name} resourceURI={resourceURI} />
+        ))}
       </section>
     </article>
   );
