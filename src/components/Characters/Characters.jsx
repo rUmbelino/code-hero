@@ -16,26 +16,24 @@ export const Characters = () => {
           }
 
           if (error) {
-            return <p className='text-danger py-1'>{error}</p>;
+            return <p className="text-danger py-1">{error}</p>;
+          }
+
+          if (list.length === 0) {
+            return <p className="py-1">Não existem resultados a serem exibidos</p>;
           }
 
           return list.map((character) => {
-            return (
-              <Character
-                key={`character-${character.id}`}
-                onClick={setSelectedCharacter}
-                {...character}
-              />
-            );
+            return <Character key={`character-${character.id}`} onClick={setSelectedCharacter} {...character} />;
           });
         };
 
         return (
-          <div className='container characters-page'>
-            <div className='row'>
-              <p className='characters column pl-2'>Personagem</p>
-              <p className='series column mobile-hidden'>Séries</p>
-              <p className='events column mobile-hidden'>Eventos</p>
+          <div className="container characters-page">
+            <div className="row">
+              <p className="characters column pl-2">Personagem</p>
+              <p className="series column mobile-hidden">Séries</p>
+              <p className="events column mobile-hidden">Eventos</p>
             </div>
             {renderCharacters()}
           </div>

@@ -18,6 +18,15 @@
   outline: none !important;
 }
 
+.search-bar .clear {
+  top: 0;
+  bottom: 0;
+  right: 2em;
+  border: none;
+  background: transparent;
+  outline: none !important;
+}
+
 .search-bar .search img {
   max-width: 100%;
 }
